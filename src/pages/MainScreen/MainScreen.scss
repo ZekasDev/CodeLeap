@@ -1,0 +1,28 @@
+.mainscreen-container {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+ 
+  .mainscreen-wrapper {
+    background-color: white;
+    max-width: 800px;
+    width: 100%;
+
+    header {
+        background-color: #7695EC;
+        padding: 27px 37px;
+        color: white;
+        font-size: 1.375rem;
+        font-weight: 700;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px;
+    }
+  }
+}

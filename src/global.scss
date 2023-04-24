@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+body {
+  background-color: #dddddd;
+}
+
+.primary-button,
+.delete-button,
+.cancel-button,
+.save-button {
+  display: block;
+
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 30px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    background-color: #777777;
+    pointer-events: none;
+  }
+}
+
+.primary-button {
+  background-color: #7695ec;
+  color: white;
+
+  &:hover {
+    background-color: #6f8ee6;
+  }
+}
+
+.cancel-button {
+  background-color: white;
+  color: black;
+  border: 1px solid #999999;
+
+  &:hover {
+    background-color: #e3e3e3;
+  }
+}
+
+.delete-button {
+  background-color: #ff5151;
+  color: white;
+
+  &:hover {
+    background-color: #d26161;
+  }
+  
+}
+
+.save-button {
+  background-color: #47B960;
+  color: white;
+
+  &:hover {
+    background-color: #318543;
+  }
+}
