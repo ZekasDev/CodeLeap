@@ -2,9 +2,21 @@ import { PostCreator } from "../../components/PostCreator/PostCreator";
 import { Post } from "../../components/Post/Post";
 import "./MainScreen.scss";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 
 export function MainScreen() {
   const posts = useSelector((state) => state.posts);
+  const username = useSelector((state) => state.username)
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!username) {
+      navigate("/");
+    }
+  }, [username])
   
 
   return (

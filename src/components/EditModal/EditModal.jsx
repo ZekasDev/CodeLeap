@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./EditModal.scss";
 
-export default function EditModal({ toggleModal, postId }) {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+export default function EditModal({ toggleModal, postId, postTitle, postContent }) {
+  const [title, setTitle] = useState(postTitle);
+  const [content, setContent] = useState(postContent);
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
-  const post = posts.filter((p) => p.id == postId);
+  
 
   function editPost() {
     dispatch({
@@ -24,14 +23,14 @@ export default function EditModal({ toggleModal, postId }) {
 
         <span>Title</span>
         <input
-          value={post[0].title}
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
         />
 
         <span>Content</span>
         <textarea
-          value={post[0].content}
+          value={content}
           onChange={(e) => setContent(e.target.value)}
           type="text-field"
         />

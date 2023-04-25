@@ -19,11 +19,23 @@ export function Post({ author, title, content, createdAt, id }) {
   const username = useSelector((state) => state.username);
 
   function toggleDeleteModal() {
-    setShowDeleteModal(prevValue => !prevValue)
+    setShowDeleteModal((prevValue) => !prevValue);
+    if (showDeleteModal) {
+      document.body.style.overflow = "visible";
+    } else {
+      window.scrollTo(0, 0)
+      document.body.style.overflow = "hidden";
+    }
   }
 
   function toggleEditModal() {
-    setShowEditModal(prevValue => !prevValue)
+    setShowEditModal((prevValue) => !prevValue);
+    if (showEditModal) {
+      document.body.style.overflow = "visible";
+    } else {
+      window.scrollTo(0, 0)
+      document.body.style.overflow = "hidden";
+    }
   }
 
   return (
@@ -49,8 +61,10 @@ export function Post({ author, title, content, createdAt, id }) {
         <p>{content}</p>
       </div>
 
-      {showDeleteModal &&  <DeleteModal toggleModal={toggleDeleteModal} postId={id} />}
-      {showEditModal && <EditModal toggleModal={toggleEditModal} postId={id}/>}
+      {showDeleteModal && (
+        <DeleteModal toggleModal={toggleDeleteModal} postId={id} />
+      )}
+      {showEditModal && <EditModal toggleModal={toggleEditModal} postId={id} postTitle={title} postContent={content} />}
     </div>
   );
 }
