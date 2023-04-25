@@ -3,17 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./global.scss";
 import { MainScreen } from "./pages/MainScreen/MainScreen";
 import { SignUp } from "./pages/SignUp/SignUp";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/CodeLeap",
+    path: "/",
     element: <SignUp />,
   },
   {
-    path: "/CodeLeap/posts",
+    path: "/posts",
     element: <MainScreen />,
   },
 ]);
@@ -25,3 +25,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </Provider>
   </React.StrictMode>
 );
+
+// Comito?
