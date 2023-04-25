@@ -9,11 +9,11 @@ import store from "./redux/store";
 
 const router = createBrowserRouter([
   {
-    path: "/CodeLeap",
+    path: "/",
     element: <SignUp />,
   },
   {
-    path: "/CodeLeap/posts",
+    path: "/posts",
     element: <MainScreen />,
   },
 ]);
