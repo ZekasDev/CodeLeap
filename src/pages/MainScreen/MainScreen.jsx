@@ -14,7 +14,7 @@ export function MainScreen() {
         <main className="content">
           <PostCreator />
           {posts.map((post, index) => {
-            return <Post title={post.title} author={post.author} content={post.content} key={index} createdAt={post.createdAt}/>;
+            return <Post title={post.title} author={post.author} content={post.content} key={index} createdAt={post.createdAt} id={post.id}/>;
           })}
         </main>
       </div>

@@ -1,13 +1,28 @@
-import "./DeleteModal.scss"
+import { useDispatch } from "react-redux";
+import "./DeleteModal.scss";
 
-export default function DeleteModal() {
+export default function DeleteModal({ toggleModal, postId }) {
+  const dispatch = useDispatch();
+
+  function deletePost() {
+    dispatch({
+      type: "DELETE_POST",
+      payload: postId,
+    });
+    toggleModal();
+  }
+
   return (
     <div className="delete-modal-overlay">
       <div className="delete-modal">
         <h3>Are you sure you want to delete this item?</h3>
         <div className="buttons-wrapper">
-            <button className="cancel-button">Cancel</button>
-            <button className="delete-button">Delete</button>
+          <button onClick={toggleModal} className="cancel-button">
+            Cancel
+          </button>
+          <button onClick={deletePost} className="delete-button">
+            Delete
+          </button>
         </div>
       </div>
     </div>

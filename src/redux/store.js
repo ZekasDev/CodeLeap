@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
+import { nanoid } from "nanoid";
 
 const initialState = {
   username: "",
@@ -10,7 +11,24 @@ function rootReducer(state = initialState, action) {
     case "SET_USERNAME":
       return { ...state, username: action.payload };
     case "ADD_POST":
-      return { ...state, posts: [...state.posts, action.payload] };
+      const newPost = {
+        ...action.payload,
+        id: nanoid(),
+      };
+      return { ...state, posts: [newPost, ...state.posts] };
+    case "DELETE_POST":
+      const postId = action.payload;
+      const filteredPosts = state.posts.filter((post) => post.id !== postId);
+      return { ...state, posts: filteredPosts };
+    case "EDIT_POST":
+      const { id, title, content } = action.payload;
+      const editedPosts = state.posts.map((post) => {
+        if (post.id === id) {
+          return { ...post, title, content };
+        }
+        return post;
+      });
+      return { ...state, posts: editedPosts };
     default:
       return state;
   }

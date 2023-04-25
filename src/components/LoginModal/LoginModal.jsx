@@ -25,7 +25,7 @@ export function LoginModal() {
         type="text"
         placeholder="John Doe"
       />
-      <button onClick={logIn} className="primary-button">
+      <button disabled={username === ""} onClick={logIn} className="primary-button">
         ENTER
       </button>
     </div>

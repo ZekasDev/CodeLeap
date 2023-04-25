@@ -12,6 +12,7 @@ export function PostCreator() {
   function createPost() {
     if (title === "" || content === "") return;
     const post = {
+      
       author: username,
       title,
       content,
