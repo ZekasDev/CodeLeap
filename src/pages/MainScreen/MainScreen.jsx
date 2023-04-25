@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export function MainScreen() {
   const posts = useSelector((state) => state.posts);
+  
 
   return (
     <div className="mainscreen-container">

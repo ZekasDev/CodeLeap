@@ -1,11 +1,13 @@
-import { useDispatch } from "react-redux";
-import "./EditModal.scss";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./EditModal.scss";
 
 export default function EditModal({ toggleModal, postId }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts);
+  const post = posts.filter((p) => p.id == postId);
 
   function editPost() {
     dispatch({
@@ -22,25 +24,28 @@ export default function EditModal({ toggleModal, postId }) {
 
         <span>Title</span>
         <input
-          value={title}
+          value={post[0].title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
-          placeholder="Hello world"
         />
 
         <span>Content</span>
         <textarea
-          value={content}
+          value={post[0].content}
           onChange={(e) => setContent(e.target.value)}
           type="text-field"
-          placeholder="Content here"
         />
 
         <div className="buttons-wrapper">
           <button onClick={toggleModal} className="cancel-button">
             Cancel
           </button>
-          <button disabled={content === "" || title === ""} onClick={editPost} className="save-button">
+
+          <button
+            disabled={content === "" || title === ""}
+            onClick={editPost}
+            className="save-button"
+          >
             Save
           </button>
         </div>
