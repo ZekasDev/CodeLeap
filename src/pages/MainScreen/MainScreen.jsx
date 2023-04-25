@@ -10,6 +10,7 @@ export function MainScreen() {
     <div className="mainscreen-container">
       <div className="mainscreen-wrapper">
         <header>CodeLeap Network</header>
+      
 
         <main className="content">
           <PostCreator />
